@@ -1,0 +1,25 @@
+<h4>New Post</h4>
+
+<form [formGroup]="createForm">
+  <div class="form-group">
+    <label>Title</label>
+
+    <input type="text" class="form-control"placeholder="Write a title" formControlName="title">
+
+    <div class="alert alert-danger small" *ngIf="title.invalid && title.touched">
+      Please, write a title!
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Description</label>
+
+    <textarea class="form-control" rows="4" placeholder="Write a description" formControlName="description"></textarea>
+    
+    <div class="alert alert-danger small" *ngIf="description.invalid && description.touched">
+      Please, write a description!
+    </div>
+  </div>
+
+  <button type="button" class="btn btn-success" (click)="create()" [disabled]='createForm.invalid'>Create</button>
+</form>
